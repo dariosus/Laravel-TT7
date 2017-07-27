@@ -11,6 +11,15 @@
 |
 */
 
+Route::get("/peliculas", "PeliculasController@listarPeliculas");
+
+Route::get("/peliculas/{id}", "PeliculasController@detalle");
+
+Route::get("/generos", "GenerosController@listarGeneros");
+
+Route::get("/generos/{id}", "GenerosController@detalleGenero");
+
+
 Route::get("/saludar/{nombre}/{apellido?}", function($nombre, $apellido = "Sin Apellido") {
   return "Hola $nombre $apellido";
 });
