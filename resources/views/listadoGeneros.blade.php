@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body>
-    <div class="jumbotron">
-      Bienvenidos a mi sitio
-    </div>
+@extends("plantillas.plantilla")
+
+@section("css")
+  <link rel="stylesheet" href="/css/master.css">
+@endsection
+
+@section("sarasa")
     <ul>
-      <?php foreach($generos as $genero) : ?>
-        <li>
-          <?=$genero?>
-        </li>
-      <?php endforeach; ?>
+      @forelse($generos as $genero)
+        @if ($genero == "Comedia")
+          <li style="color:blue;">
+            {{$genero}}
+          </li>
+        @else
+          <li>
+            {{$genero}}
+          </li>
+        @endif
+      @empty
+        No hay generos
+      @endforelse
     </ul>
-  </body>
-</html>
+@endsection
