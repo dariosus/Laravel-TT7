@@ -9,11 +9,11 @@
       @forelse($generos as $genero)
         @if ($genero == "Comedia")
           <li style="color:blue;">
-            {{$genero}}
+            {{$genero->name}} - {{$genero->ranking}}
           </li>
         @else
           <li>
-            {{$genero}}
+            {{$genero->name}} - {{$genero->ranking}}
           </li>
         @endif
       @empty

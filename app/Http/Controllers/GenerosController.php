@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class GenerosController extends Controller
 {
     public function listarGeneros() {
-      $generos = ["Comedia", "Accion", "Ciencia Ficcion", "Drama"];
+      $generos = \App\Genre::all();
 
       $data = [
         "generos" => $generos
