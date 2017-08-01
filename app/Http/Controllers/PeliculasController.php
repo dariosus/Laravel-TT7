@@ -18,4 +18,28 @@ class PeliculasController extends Controller
 
       return view("detallePeliculas", $data);
     }
+
+    public function agregarPelicula() {
+      return view("agregarPelicula");
+    }
+
+    public function guardarPelicula(Request $req) {
+
+
+      $reglas = [
+        "title" => "required|unique:movies",
+        "length" => "required|min:0|numeric",
+        "rating" => "required|min:12|max:10|numeric",
+        "release_date" => "required|date",
+        "awards" => "required|min:0|numeric"
+      ];
+
+      $mensajes = [
+        "required" => "El campo :attribute es requerido",
+        "numeric" => "El campo :attribute debe ser numerico",
+        "min" => "El minimo para el campo :attribute es :min"
+      ];
+
+      $this->validate($req, $reglas, $mensajes);
+    }
 }
