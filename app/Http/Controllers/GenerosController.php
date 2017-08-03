@@ -17,9 +17,7 @@ class GenerosController extends Controller
     }
 
     public function detalleGenero($id) {
-      $generos = ["Comedia", "Accion", "Ciencia Ficcion", "Drama"];
-
-      $genero = $generos[$id - 1];
+      $genero = \App\Genre::find($id);
 
       return view("detalleGenero", ["genero" => $genero]);
     }

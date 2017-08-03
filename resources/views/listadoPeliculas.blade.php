@@ -13,7 +13,7 @@
       @foreach ($peliculas as $pelicula)
         <li>
           <a href="/peliculas/{{$pelicula->id}}">
-            {{$pelicula->title}}
+            {{$pelicula->title}} - Genero: {{$pelicula->getNombreGenero()}}
           </a>
         </li>
       @endforeach
