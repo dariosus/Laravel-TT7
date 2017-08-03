@@ -1,3 +1,7 @@
+@extends("plantillas.plantilla")
+
 @section("sarasa")
-    Me pidieron la película <?=$idSarasa?>
+    {{$pelicula->title}}
+
+    <a href="/delete/{{$pelicula->id}}">Borrar Pelicula</a>
 @endsection

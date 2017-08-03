@@ -10,8 +10,13 @@
       Bienvenidos a mi sitio
     </div>
     <ul>
-      <li>Toy Story</li>
-      <li>Sarasa</li>
+      @foreach ($peliculas as $pelicula)
+        <li>
+          <a href="/peliculas/{{$pelicula->id}}">
+            {{$pelicula->title}}
+          </a>
+        </li>
+      @endforeach
     </ul>
   </body>
 </html>
