@@ -17,6 +17,7 @@
           </a>
         </li>
       @endforeach
+      {{$peliculas->links()}}
     </ul>
   </body>
 </html>

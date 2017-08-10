@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Collection;
+use Storage;
 class PeliculasController extends Controller
 {
     public function listarPeliculas() {
-      $peliculas = \App\Pelicula::all();
+      $peliculas = \App\Pelicula::paginate(5);
+
       return view("listadoPeliculas", compact("peliculas"));
     }
 
@@ -50,6 +52,11 @@ class PeliculasController extends Controller
       $pelicula->release_date = $req->input("release_date");
       $pelicula->rating = $req->input("rating");
       $pelicula->length = $req->input("length");
+
+      $poster = $req->file("poster");
+      $nombrePoster = Storage::putFile("public/peliculas", $poster);
+
+      $pelicula->poster = $nombrePoster;
 
       $pelicula->save();
 
