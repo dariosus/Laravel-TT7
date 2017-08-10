@@ -22,3 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Pelicula::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->catchPhrase,
+        'awards' => $faker->numberBetween(0, 15),
+        'length' => $faker->numberBetween(60, 200),
+        'rating' => $faker->numberBetween(0, 10),
+        "release_date" => $faker->date($format = 'Y-m-d', $max = 'now'),
+        "genre_id" => $faker->numberBetween(1,12)
+    ];
+});
